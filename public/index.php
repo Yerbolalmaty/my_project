@@ -1,8 +1,9 @@
 <?php
-require_once ('../vendor/autoload.php');
+function userConnect($db){
+    return function ($user) use ($db){
+        echo $user.'подключился к базе'.$db;
+    };
+}
+$var = userConnect(' Gulzhan');
 
-
-$worker = new \App\Worker();
-//$worker->work();
-$visitor = new \App\Visitor();
-var_dump($visitor->visit());
+$var('Yerema ');
